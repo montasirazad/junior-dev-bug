@@ -6,9 +6,9 @@ import { TbRow } from './Handler'
 import useGlobal from '../../../Hooks/useGlobal';
 
 const CartProducts = [{ id: 1, product: 'External SSD USB 3.1 750 GB', price: '1' }, { id: 2, product: 'External SSD USB 2.1 150 GB', price: '1' }];
-const { toggleModal } = useGlobal
+
 export default function Order() {
-    const { open, setTotalPrice, totalPrice } = useGlobalCtx();
+    const { open, setOpen, setTotalPrice, totalPrice, toggleModal } = useGlobalCtx();
     const total = CartProducts.reduce(
         (accumulator, currentValue) => Number(accumulator) + Number(currentValue.price),
         0
@@ -51,8 +51,8 @@ export default function Order() {
                     <p className="text-black text-base font-normal">Estimated Total</p>
                     <p className="font-bold text-xl text-textHeader">৳ {totalPrice} TK </p>
                 </div>
-                 
-                <Btn >Continue to Payment</Btn>
+
+                <Btn onClick={() => setOpen(!open)}>Continue to Payment</Btn>
                 {open ? <PaymentMd /> : ""}
             </div>
         </div >
