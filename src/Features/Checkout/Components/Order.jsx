@@ -8,7 +8,7 @@ import useGlobal from '../../../Hooks/useGlobal';
 const CartProducts = [{ id: 1, product: 'External SSD USB 3.1 750 GB', price: '1' }, { id: 2, product: 'External SSD USB 2.1 150 GB', price: '1' }];
 
 export default function Order() {
-    const { open, setOpen, setTotalPrice, totalPrice, toggleModal } = useGlobalCtx();
+    const { open, setOpen, setTotalPrice, totalPrice, getPayment } = useGlobalCtx();
     const total = CartProducts.reduce(
         (accumulator, currentValue) => Number(accumulator) + Number(currentValue.price),
         0
