@@ -52,7 +52,7 @@ export default function Order() {
                     <p className="font-bold text-xl text-textHeader">৳ {totalPrice} TK </p>
                 </div>
 
-                <Btn onClick={() => setOpen(!open)}>Continue to Payment</Btn>
+                <Btn onClick={() => setOpen(!open)} type='submit'>Continue to Payment</Btn>
                 {open ? <PaymentMd /> : ""}
             </div>
         </div >
